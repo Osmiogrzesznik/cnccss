@@ -1,0 +1,336 @@
+
+
+#txtArea,#overlaysContainer{
+
+
+margin:0px;
+
+width:36em;
+position:absolute;
+top:310px;
+
+
+//position:fixed;
+top:0;
+left:300px;
+
+background-color:white;//rgba(0,0,0,0.1);
+border:0px solid rgba(0,0,0,0.5);
+font-size:5px;
+letter-spacing:0;
+border-radius:20px;
+border-radius:0px;
+padding:0px 0px 0px 0px;
+
+
+font-family:Menlo;
+
+
+}
+
+#txtArea{
+background-color:white;
+
+}
+
+#overlaysContainer{
+padding:0px 0px 0px 3px;
+//color:transparent;
+}
+
+.activeb,.unactiveb{
+display:block;
+padding:0px;
+width:35em;
+z-index:-998;
+//border:0px solid rgba(0,0,0,0.5);
+
+letter-spacing:0;
+font-fanily:Menlo;
+
+
+}
+
+.activeb{
+box-shadow: inset 1px 1px 11px 5px rgba(0,255,0,0.5);
+background-color:rgba(0,255,0,0.1);
+border-color:rgba(0,255,0,0.5);
+}
+
+
+.unactiveb{
+background-color:rgba(255,255,255,0.1);
+//border-color:rgba(0,0,0,0.1);
+}
+
+
+
+
+
+body {
+background-color:#269;
+background-image: linear-gradient(white 2px, transparent 2px),
+linear-gradient(90deg, white 2px, transparent 2px),
+linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+background-size:100px 100px, 100px 100px, 20px 20px, 20px 20px;
+background-position:0px 50px, 2px 0px, 2px 0px, 2px 0px;
+z-index:-1000;
+}
+
+.controls{
+position:fixed;
+width:80%;
+display:flex;
+align-items:center;
+justify-content:flex-end;
+z-index:10;
+position: fixed;
+bottom: 0px ;
+right:0px;
+	
+}
+
+.group{
+display:flex;
+justify-content:flex-start;;
+z-index:10;
+}
+
+button{
+background-color:white;
+box-shadow: 2px 2px 2px 2px black;
+}
+
+
+.startbtn{
+margin:5px;
+background-color:green;
+border-radius:6em;
+width:5em;
+height:5em;
+box-shadow: 2px 2px 2px 2px black;
+text-align:center;
+}
+
+.activebtn{
+background-color:#aaa;
+
+
+box-shadow:inset 2px 2px 2px 2px black;
+
+}
+
+
+
+
+.log{
+background-color:#000;
+//position:absolute;
+font-size:15px;
+color:green;
+text-align:right;
+}
+
+display{
+position:relative;
+top:50px;
+left:0px
+
+}
+
+
+canvas{
+position:absolute;
+border:2px dotted gray;
+z-index:-999;
+
+
+}
+
+
+#toucharea{
+overflow:hidden;
+
+border:2px solid red;
+height:20em;
+
+}
+#toucharea:after{
+content:"swipe in this area";
+
+color:red;
+z-index:1;
+}
+
+
+.tool {
+position:absolute;
+top: -5.1em;
+left: -1.1em;
+margin:0 ;
+border-radius:5px;
+border:1px solid transparent;
+
+width:5em;
+height:5em;
+
+}
+
+
+
+.tool:before{
+content: "";
+display:block;
+margin:0 ;
+border-radius:0px;
+border:5px solid #333;
+background-color:#444;
+position: absolute;
+  top:1em;
+left:-50%;
+width:100%;
+height:1em;
+
+z-index:-1;
+}
+
+
+
+.holder,.holderon{
+position:relative;
+margin:0;
+border-radius:5px;
+border:1px solid gray;
+background-color:#222;
+width:3em;
+height:4em;
+}
+
+
+.holder:after,.holderon:after{
+
+  content: "";
+
+display:block;
+width:0px;
+height:0px;
+border:3em solid transparent;
+border-width:1em 1em 1em 1em;
+border-top:1em solid #000;
+  position: absolute;
+  top:3.9em;
+  left:2px;
+padding:1px;
+transition:border-top 1s;
+z-index:5;
+}
+
+.holderon:after{
+
+box-shadow: inset 1px 1px 2px 2px rgba(255,0,0, .5);
+
+border-top:1em groove #621;
+
+}
+
+
+
+.point,.holderon:before{
+
+  content: "";
+
+display:block;
+margin:0;
+border-radius:5px;
+border:1px solid rgba(255,0,0,.1);
+background-color:yellow;
+width:4px;
+height:3px;
+z-index:0;
+ position: absolute;
+
+top:calc(5em + 2px);
+ left:calc(1em + 1px);
+
+
+}
+
+.holderon:before{
+
+box-shadow:0px 0px 1px 1px rgba(255, 0, 0, 1);
+
+}
+
+
+
+@keyframes pulse{
+0%{ 
+
+box-shadow:0px 0px 1px 1px rgba(255, 0, 0, 1);
+border:.5px solid rgba(255,0,0,.7);
+background-color:yellow;
+transform: scale(1);
+}
+
+100%{ 
+
+
+box-shadow:0px 0px 1px 1px rgba(255, 0, 0, 1);
+border:.5px solid rgba(255,255,0,.8);
+background-color:white;
+transform: scale(2);
+}
+
+}
+
+
+.point{
+
+box-shadow:0px 0px 20px 15px rgba(0, 0, 0, 1);
+width:2px;
+height:1px;
+border:.5px solid rgba(255,0,0,1);
+/*
+top:calc(5em + 2px);
+ left:calc(1em + 2px);*/
+
+top:2px;
+ left:2.5px;
+
+
+
+background-color:rgba(255,0,0,1);
+ z-index:2;
+
+
+}
+
+.orbit{
+
+ position: absolute;
+
+
+left:100px;
+top:100px;
+ animation:g02 4s linear forwards;
+}
+
+
+@keyframes g02{
+
+0%{ 
+transform: rotate(0deg) translateX(100px) rotate(0deg);
+}
+
+100%{ 
+transform: rotate(180deg) translateX(100px) rotate(-180deg);
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,115 @@
+<!DOCTYPE html><html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width initial-scale=1 user-scalabler=no" />
+  <title>flpiv</title>
+  <link rel="stylesheet" href="img/bootstrap.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+
+<div id="controls" class="controls">
+
+<button
+class="activebtn"
+onclick="
+	AutoHome=!AutoHome;
+	notify(this,AutoHome);
+	"
+>
+Auto Home
+</button>
+
+<button 
+onclick="
+	singleBlock=!singleBlock;
+	notify(this,singleBlock);
+	"
+>
+Single Block</button>
+
+<div class="group">
+
+<button
+onclick="
+	teach=!teach;
+	notify(this,teach);
+	listen(teach)
+	"
+>
+teach
+</button>
+
+
+
+<button 
+onclick="
+switchEditRun('Run');
+animePath.play()"
+class="startbtn"
+>
+start</button>
+
+
+
+<button onclick="swipe();
+
+switchEditRun('Edit');
+">Reset</button>
+
+
+<button
+class=""
+onclick="
+	clickAnim(this);
+	clearAnime();
+	"
+>
+clear Prog
+</button>
+
+</div>
+</div>
+
+
+<div class="controls">
+<div id="loggy" class="log"></div></div>
+
+<div id="debuglog" class="log"></div>
+<display>
+
+     <canvas id="cnv" width=300 height=300></canvas>
+
+
+     <div class="point"></div>
+     <div id="tool" class="tool" style="" >
+          <div id="holdy" class="holder"></div>
+     </div>
+</display>
+<display>
+
+<textarea
+	id="txtArea" 
+	cols=15
+	rows=5
+	>
+
+
+</textarea>
+<div id="overlaysContainer">
+
+
+</div>
+
+
+</display>
+<script src="img/zingtouch.min.js"></script>
+
+  <script src="img/anime.js"></script>
+  <script src="img/jquery.min.js"></script>
+  <script src="img/tether.min.js"></script>
+  <script src="img/bootstrap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
